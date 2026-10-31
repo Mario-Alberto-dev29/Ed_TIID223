@@ -36,11 +36,23 @@ class ListasEnlazadas:
         #Referencia temporal
         actual = self.cabeza
 
-        while(actual.siguente):
-            actual = actual.siguente
+        while(actual.siguiente):
+            actual = actual.siguiente
 
-        actual.siguente = nuevo_nodo
+        actual.siguiente = nuevo_nodo
 
+    def Borrar_Nodo_al_Final(self):
+        actual = self.cabeza
+
+        while(actual.siguiente.siguiente):
+            actual = actual.siguiente
+
+        actual.siguiente = None
+          
+    def Borrar_Nodo_al_Inicio(self):
+        incio = self.cabeza
+        self.cabeza = self.cabeza.siguiente
+        inicio = None
     def Imprimir_ListaEnlazada(self):
 
         actual = self.cabeza
@@ -54,5 +66,11 @@ Mi_lista = ListasEnlazadas()
 Mi_lista.Insertar_Nodo_Al_Inicio(5)
 Mi_lista.Insertar_Nodo_Al_Inicio(4)
 Mi_lista.Insertar_Nodo_Al_Inicio(3)
+Mi_lista.Insertar_Nodo_al_Final(7)
+Mi_lista.Insertar_Nodo_al_Final(9)
+Mi_lista.Imprimir_ListaEnlazada()
+print("Ahora borramos al inicio y al final")
+Mi_lista.Borrar_Nodo_al_Final()
+Mi_lista.Borrar_Nodo_al_Inicio()
 Mi_lista.Imprimir_ListaEnlazada()
 
